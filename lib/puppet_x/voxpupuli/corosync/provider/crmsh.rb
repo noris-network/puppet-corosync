@@ -1,6 +1,6 @@
 begin
-  require 'puppet_x/voxpupuli/corosync/provider'
-  require 'puppet_x/voxpupuli/corosync/provider/cib_helper'
+  require '../../puppet_x/voxpupuli/corosync/provider'
+  require '../../puppet_x/voxpupuli/corosync/provider/cib_helper'
 rescue LoadError
   require 'pathname' # WORKAROUND #14073, #7788 and SERVER-973
   corosync = Puppet::Module.find('corosync', Puppet[:environment].to_s)
