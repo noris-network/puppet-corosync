@@ -1,13 +1,5 @@
-begin
-  require 'puppet_x/voxpupuli/corosync/provider'
-  require 'puppet_x/voxpupuli/corosync/provider/cib_helper'
-rescue LoadError
-  require 'pathname' # WORKAROUND #14073, #7788 and SERVER-973
-  corosync = Puppet::Module.find('corosync', Puppet[:environment].to_s)
-  raise(LoadError, "Unable to find corosync module in modulepath #{Puppet[:basemodulepath] || Puppet[:modulepath]}") unless corosync
-  require File.join corosync.path, 'lib/puppet_x/voxpupuli/corosync/provider'
-  require File.join corosync.path, 'lib/puppet_x/voxpupuli/corosync/provider/cib_helper'
-end
+require File.join(File.dirname(__FILE__), '..','..','..','..','puppet_x/voxpupuli/corosync/provider')
+require File.join(File.dirname(__FILE__), '..','..','..','..','puppet_x/voxpupuli/corosync/provider/cib_helper')
 
 class PuppetX::Voxpupuli::Corosync::Provider::Crmsh < PuppetX::Voxpupuli::Corosync::Provider::CibHelper
   initvars
